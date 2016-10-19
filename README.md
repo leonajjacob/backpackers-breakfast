@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-
-<body>
-
-<TITLE> 
-Backpackers-Breakfast
-
-</Title>
-
-
+Backpackers Breakfast
 
 Breakfast Around the World
-
-
-</body>
