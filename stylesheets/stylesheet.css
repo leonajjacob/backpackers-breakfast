@@ -1,13 +1,17 @@
+/*this is the map part of the doc */
+
 * {
   box-sizing: border-box; }
+
 
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli";
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #606c71;
+  }
 
 a {
   color: #1e6bb8;
@@ -243,3 +247,34 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+
+/*--this is the style part for the doc the text is in the html file*/
+
+title {
+  font-family: 'muli';
+  font-size: 24px;
+  background-color: white;
+  color: black;
+  position: central;
+  font-weight: bolder;
+}
+
+.css-selector {
+  font-family: 'Muli';
+   color: black;
+}
+
+h1 {
+  font-family: 'Muli'
+  font-size: 20px;
+  color: black;
+  position: central;
+}
+
+h2 {
+  font-size: 18px;
+  font-family: 'Muli';
+  color: black;
+  position: central;
+}
