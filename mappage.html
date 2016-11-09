@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Backpacker's Breakfast</title>
+		<link href="https://fonts.googleapis.com/css?family=Assistant|Muli" rel="stylesheet">
+		<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css'>
+		
+        <style type="text/css">
+            #map {
+                width: 100%;
+                height: 450px;
+            }
+			
+			h1 {
+			font-family: 'Assistant', sans-serif;
+			letter-spacing: 5px;
+			font-size: 40px;
+			padding-left: 20px;
+			}
+			
+			h2 {
+			font-family: 'Muli', sans-serif;
+			letter-spacing: 4px;
+			font-size: 15px;
+			padding-top: 35px;
+			padding-right: 20px;
+			}
+			
+			h3 {
+			font-family: 'Muli', sans-serif;
+			letter-spacing: 4px;
+			font-size: 15px;
+			padding-top: 10px;
+			padding-left: 20px;
+			}
+			
+			#main {
+			float: left;
+			}
+			
+			#account {
+			float: right;
+			}
+			
+			#searchbox {
+				background-color: #eaf8fc;
+				background-image: linear-gradient(#fff, #d4e8ec);
+				border-radius: 35px;    
+				border-width: 1px;
+				border-style: solid;
+				border-color: #c4d9df #a4c3ca #83afb7;            
+				width: 250px;
+				height: 25px;
+				overflow: hidden; /* Clear floats */
+				float: right;
+			}
+			
+			#search, 
+			#submit {
+				float: left;
+			}
+
+			#search {
+				padding: 5px 9px;
+				height: 15px;
+				width: 200px;
+				border: 1px solid #a4c3ca;
+				font-family: 'Muli', sans-serif;
+				letter-spacing: 1px;
+				font-size: 12px;
+				background: #f1f1f1;
+				border-radius: 50px 3px 3px 50px;           
+			}
+
+			/* ----------------------- */
+
+			#submit
+			{       
+				background-color: #e8c529;
+				border-radius: 3px 50px 50px 3px;    
+				border-width: 1px;
+				border-style: solid;
+				border-color: #a4c3ca;
+				height: 30px;
+				padding: 0;
+				width: 30px;
+				cursor: pointer;
+				font-family: 'Muli', sans-serif;
+				letter-spacing: 2px;
+				font-size: 12px;
+				font-weight: bold;
+				color: #0c0c0c;;
+			}
+
+			#submit::-moz-focus-inner {
+				   border: 0;  /* Small centering fix for Firefox */
+			}
+			
+			/* Wrapper */
+			.icon-button {
+				background-color: white;
+				border-radius: 3.6rem;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 2.0rem;
+				height: 3.6rem;
+				line-height: 3.6rem;
+				margin: 0 5px;
+				position: relative;
+				text-align: center;
+				-webkit-user-select: none;
+				   -moz-user-select: none;
+					-ms-user-select: none;
+						user-select: none;
+				width: 3.6rem;
+			}
+
+			/* Circle */
+			.icon-button span {
+				border-radius: 0;
+				display: block;
+				height: 0;
+				left: 50%;
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				-webkit-transition: all 0.3s;
+				   -moz-transition: all 0.3s;
+					 -o-transition: all 0.3s;
+						transition: all 0.3s;
+				width: 0;
+			}
+			.icon-button:hover span {
+				width: 3.6rem;
+				height: 3.6rem;
+				border-radius: 3.6rem;
+				margin: -1.8rem;
+			}
+			.twitter span {
+				background-color: #4099ff;
+			}
+			.facebook span {
+				background-color: #3B5998;
+			}
+
+			/* Icons */
+			.icon-button i {
+				background: none;
+				color: white;
+				height: 3.6rem;
+				left: 0;
+				line-height: 3.6rem;
+				position: absolute;
+				top: 0;
+				-webkit-transition: all 0.3s;
+				   -moz-transition: all 0.3s;
+					 -o-transition: all 0.3s;
+						transition: all 0.3s;
+				width: 3.6rem;
+				z-index: 10;
+			}
+			.icon-button .icon-twitter {
+				color: #4099ff;
+			}
+			.icon-button .icon-facebook {
+				color: #3B5998;
+			}
+
+			.icon-button:hover .icon-twitter,
+			.icon-button:hover .icon-facebook,
+				color: white;
+			}
+			
+        </style>
+       
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAadC4goFbgz4BwaYiz2jBQ83__e8Y2D_4"></script>
+        
+        <script type="text/javascript">
+            google.maps.event.addDomListener(window, 'load', init);
+        
+            function init() {
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 3,
+					center: new google.maps.LatLng(0,0),
+					styles: [{"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#ebeae3"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#bfd74a"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.government","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"},{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#a3cd39"}]},{"featureType":"poi.school","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#fdea9b"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffd200"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#fbad17"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#68bad2"}]}]
+                });
+				
+				var center = map.getCenter();
+
+				google.maps.event.addDomListener(window, 'resize', function() {
+				map.setCenter(center);
+				});
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(-12.046374, -77.042793),
+                    map: map,
+                    title: 'Pan con Chirraron!'
+                });
+            }
+        </script>
+    </head>
+    <body>
+		<div id="main">
+        <h1>BACKPACKER'S BREAKFAST</h1>
+		</div>
+		
+		<div id="account">
+		<h2>SIGN IN | SIGN UP</h2>
+		</div>
+		
+        <div id="map"></div>
+		
+		<div id="navigation">
+		<h3>ABOUT | RECIPES | CONTACT</h3>
+		</div>
+		
+		<form id="searchbox" action="">
+			<input id="search" type="text" placeholder="Search for a city">
+			<input id="submit" type="submit" value="GO">
+		</form>
+		
+		<a href="http://twitter.com" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
+		<a href="http://facebook.com" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
+		
+    </body>
+</html>
