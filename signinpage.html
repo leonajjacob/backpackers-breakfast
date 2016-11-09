@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+<style>
+
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: rgba(0,0,0,0);
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Assistant', sans-serif;
+  text-align: left;
+  letter-spacing: 10px;
+  font-size: 40px;
+  color: black;
+  margin: 60px 0 20px 0;
+}
+h5 {
+  text-align: right;
+  color: black;
+  margin: 0px 0px 70px 0px;
+}
+
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+width: 60%;
+height: 45%; 
+overflow: auto; /* Enable scroll if needed */
+background-color: rgba(255, 235, 205, 0.9);
+border: solid;
+}
+
+.modal-content {
+text-align: left;
+margin: 5% auto;
+padding: 20px;
+font-size: 12px;
+}
+
+.close {
+    color: grey;
+    float: right;
+    font-size: 15px;
+    margin: 0px 9px 0 0;
+}
+
+.close:hover {
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button {
+  letter-spacing: 8px;
+  padding: 10px;
+  margin: 20px;  
+}
+.green {
+background: rgba(50,205,50, 0.8);
+}
+.pink {
+background: rgba(255,182,193, 0.8);
+margin: 40px 0px 50px px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 20px;
+}
+.column-right {
+float: right;
+max-width: 300px;
+}
+.column-left {
+float: left;
+max-width: 296px;
+border-right: solid; 
+}
+
+.heading1 {
+letter-spacing: 7px;
+margin: 50px 10px 80px 0px;
+}
+.heading2 {
+letter-spacing: 7px;
+padding: 47px 0px;
+}
+
+label {
+font-size: 10px;
+float: center;
+}
+
+  input:required:valid {
+   background-image: url(http://www.the-art-of-web.com/images/valid.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+
+input {
+margin: 20px;
+}
+
+#indent {
+text-indent: 20px;
+}
+
+
+.passIcon{
+background-image: url("http://myfunkvolume.com/wp-content/themes/hustle/images/1438010122_lock.png");
+background-repeat: no-repeat;
+background-position: left;
+background-size: 20px 20px;
+}
+.userIcon{
+background-image: url("http://www.fancyicons.com/free-icons/103/mimi-deep-colour/png/48/user_48.png");
+background-repeat: no-repeat;
+background-position: left;
+background-size: 15px 15px;
+}
+.emailIcon{
+background-image: url("http://www.free-icons-download.net/images/small-email-icon-59492.png");
+background-repeat: no-repeat;
+background-position: left;
+background-size: 18px 20px;
+}
+label textarea{
+ vertical-align: middle;
+}
+
+#submitButton {
+  float: right;
+  background: rgba(255,182,193, 0.8);
+  padding: 10px;
+  margin: 20px;
+  
+}
+#submitButton:hover {
+    cursor: pointer;
+}
+
+#aboutButton:hover {
+    cursor: pointer;
+    background-color: pink;
+     font-size: 17px;
+}
+#contactButton:hover {
+    cursor: pointer;
+    background-color: pink;
+    font-size: 17px;
+}
+
+#recepieButton:hover {
+    cursor: pointer;
+    background-color: pink;
+    font-size: 17px;
+}
+#termsConditions:hover {
+cursor: pointer;
+}
+#feedback {
+text-align: center;
+vertical-align: middle;
+}
+
+</style>
+</head>
+<body>
+<h1>BACKPACKER'S BREAKFAST</h1>
+
+<h5> 
+<span id="aboutButton">ABOUT</span>
+<span class="bold">|</span>
+<span id="recepieButton"> RECEPIES </span>
+<span class="bold">|</span>
+<span id="contactButton"> CONTACT</span>
+<span class="bold">|</span>
+</h5>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+  
+    <span class="close">x</span>
+      <div id="contact">
+        <h3>Contact</h3>
+        <label>Email<input type="text" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required title="A valid email address"></input>
+        </label>
+    <br>    
+    <label>Feedback <textarea cols="40" rows="10"></textarea></label>
+    <br>
+    <br>
+    <p>Alternatively, please feel free to email us at backpackersbreakfast@gmail.com.</p>    
+    <label>
+      <button id="submitButton" type="submit"><span class="close">SUBMIT</span></button>
+    </label>
+      </div>
+    
+  <div id="feedback">
+    <p>Thank you for your feedback!</p>
+      <p>BB team</p>
+  </div>
+    
+    <div id="about">
+      <h3>About Us</h3>
+        <p>We started off as a group project between a few friends and thanks to your support, have grown into a huge foodie community. Happy reading.</p>
+        <p>Thank you!</p>
+        <p>The BB Team</p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="column-left">
+<div class="heading1">SIGN IN</div>
+<form>
+<div id="wrapper">
+<input class="userIcon type="text" required <span id="indent" placeholder="Username"></span></input>
+
+</div>
+<input class="passIcon" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters" required <span id="indent" placeholder="Password"></span></input>
+
+<label><button type="submit" class="pink">LOGIN</button></label>
+<br>
+<label><input type="checkbox" checked>Stay signed in</input></label>
+</div>
+</form>
+
+<form>
+<div class="column-right">
+<div class="heading2">SIGN UP</div>
+<input type="text" 
+    pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" 
+    required <span id="indent" class="emailIcon" title="A valid email address" placeholder="Enter your email"></span>
+    </input>
+    
+    <div>
+<input type="text" <span id="indent" class="userIcon" placeholder="Username" required>
+<input class="passIcon" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters"required <span id="indent" placeholder="Password"></span></input>
+
+</div>
+<label><button type="submit" class="green" >REGISTER</button></label>
+<br>
+<label>
+<input type="checkbox" name="terms" checked required>I accept the <span id="termsConditions"><u>Terms and Conditions</u></span></input>
+</label>
+<br>
+<label>
+<input type="checkbox" checked>I wish to receive the monthly newsletter
+</label>
+</form>
+<br>
+<br>
+<br>
+</div>
+
+<script>
+// When about button is clicked, toggle modal class
+$("#aboutButton").click(function() {
+  $("#contact").addClass('modal');//remove modal class
+  $("#about").removeClass('modal');//add modal class
+  $("#feedback").addClass('modal');//remove modal class
+  });
+ 
+  $("#contactButton").click(function() {
+  $("#contact").removeClass('modal');//add modal class
+  $("#about").addClass('modal');//remove modal class
+  $("#feedback").addClass('modal');//remove modal class
+  });
+  
+  $("#submitButton").click(function() {
+  $("#contact").addClass('modal');//remove modal class
+  $("#about").addClass('modal');//remove modal class
+  $("#feedback").removeClass('modal');//add modal class
+  });
+ 
+// Get the modal
+var modal = document.getElementById('contactModal');
+
+
+// Get the button that opens the modal
+var btn = document.getElementById("contactButton");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Get the modal
+var modal = document.getElementById('contactModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("aboutButton");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Get the modal
+var modal = document.getElementById('contactModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("submitButton");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+</script>
+
+</body>
