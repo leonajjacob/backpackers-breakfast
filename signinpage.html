@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 <style>
@@ -8,7 +9,7 @@
 body {
   font-family: 'Muli', sans-serif;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 90%;
   background: rgba(0,0,0,0);
   padding: 0;
   text-align: center;
@@ -30,13 +31,13 @@ h5 {
 
 .modal {
 display: none;
-position: fixed;
 z-index: 1;
 width: 60%;
 height: 45%; 
 overflow: auto; /* Enable scroll if needed */
-background-color: rgba(255, 235, 205, 0.9);
-border: solid;
+background-color: #e8e6de;
+position: absolute;
+margin-left: 200px;
 }
 
 .modal-content {
@@ -64,12 +65,13 @@ button {
   padding: 10px;
   margin: 20px;  
 }
-.green {
-background: rgba(50,205,50, 0.8);
-}
-.pink {
-background: rgba(255,182,193, 0.8);
+
+.login {
+background: #fcde5a;
 margin: 40px 0px 50px px;
+}
+.register {
+background: #69b7db;
 }
 
 .bold {
@@ -79,11 +81,13 @@ margin: 40px 0px 50px px;
 .column-right {
 float: right;
 max-width: 300px;
+margin-right: 250px;
 }
 .column-left {
 float: left;
-max-width: 296px;
-border-right: solid; 
+max-width: 300px;
+border-right: solid;
+margin-left: 300px; 
 }
 
 .heading1 {
@@ -112,6 +116,8 @@ margin: 20px;
 
 #indent {
 text-indent: 20px;
+font-family: 'Muli', sans-serif;
+letter-spacing: 0.5px;
 }
 
 
@@ -139,7 +145,7 @@ label textarea{
 
 #submitButton {
   float: right;
-  background: rgba(255,182,193, 0.8);
+  background: #62bf50;
   padding: 10px;
   margin: 20px;
   
@@ -148,21 +154,32 @@ label textarea{
     cursor: pointer;
 }
 
+#aboutButton {
+letter-spacing: 4px;
+}
+
 #aboutButton:hover {
     cursor: pointer;
-    background-color: pink;
+    background-color: #e5c63b;
      font-size: 17px;
 }
 #contactButton:hover {
     cursor: pointer;
-    background-color: pink;
+    background-color: #62bf50;
     font-size: 17px;
 }
+#contactButton {
+letter-spacing: 4px;
+}
+
 
 #recepieButton:hover {
     cursor: pointer;
-    background-color: pink;
+    background-color: #69b7db;
     font-size: 17px;
+}
+#recepieButton {
+letter-spacing: 4px;
 }
 #termsConditions:hover {
 cursor: pointer;
@@ -172,6 +189,7 @@ text-align: center;
 vertical-align: middle;
 }
 
+
 </style>
 </head>
 <body>
@@ -180,10 +198,9 @@ vertical-align: middle;
 <h5> 
 <span id="aboutButton">ABOUT</span>
 <span class="bold">|</span>
-<span id="recepieButton"> RECEPIES </span>
+<span id="recepieButton">RECIPES</span>
 <span class="bold">|</span>
 <span id="contactButton"> CONTACT</span>
-<span class="bold">|</span>
 </h5>
 
 <div id="contactModal" class="modal">
@@ -228,7 +245,7 @@ vertical-align: middle;
 </div>
 <input class="passIcon" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters" required <span id="indent" placeholder="Password"></span></input>
 
-<label><button type="submit" class="pink">LOGIN</button></label>
+<label><button type="submit" class="login">LOGIN</button></label>
 <br>
 <label><input type="checkbox" checked>Stay signed in</input></label>
 </div>
@@ -247,7 +264,7 @@ vertical-align: middle;
 <input class="passIcon" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters"required <span id="indent" placeholder="Password"></span></input>
 
 </div>
-<label><button type="submit" class="green" >REGISTER</button></label>
+<label><button type="submit" class="register" >REGISTER</button></label>
 <br>
 <label>
 <input type="checkbox" name="terms" checked required>I accept the <span id="termsConditions"><u>Terms and Conditions</u></span></input>
