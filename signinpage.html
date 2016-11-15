@@ -115,30 +115,34 @@ input {
 margin: 20px;
 }
 
-#indent {
-text-indent: 20px;
-font-family: 'Muli', sans-serif;
-letter-spacing: 0.5px;
-}
 
 
 .passIcon{
-background-image: url("http://myfunkvolume.com/wp-content/themes/hustle/images/1438010122_lock.png");
+background-image: url("http://www.freeiconspng.com/uploads/black-lock-icon-14.png");
 background-repeat: no-repeat;
 background-position: left;
-background-size: 20px 20px;
+background-size: 15px 15px;
+text-indent: 20px;
+font-family: 'Muli', sans-serif;
+letter-spacing: 0.5px;
 }
 .userIcon{
 background-image: url("http://www.fancyicons.com/free-icons/103/mimi-deep-colour/png/48/user_48.png");
 background-repeat: no-repeat;
 background-position: left;
 background-size: 15px 15px;
+text-indent: 20px;
+font-family: 'Muli', sans-serif;
+letter-spacing: 0.5px;
 }
 .emailIcon{
 background-image: url("http://www.free-icons-download.net/images/small-email-icon-59492.png");
 background-repeat: no-repeat;
 background-position: left;
 background-size: 18px 20px;
+text-indent: 20px;
+font-family: 'Muli', sans-serif;
+letter-spacing: 0.5px;
 }
 label textarea{
  vertical-align: middle;
@@ -237,32 +241,32 @@ vertical-align: middle;
   </div>
 </div>
 
+<form>
 <div class="column-left">
 <div class="heading1">SIGN IN</div>
-<form>
+
 <div id="wrapper">
-<input class="userIcon type="text" required <span id="indent" placeholder="Username"></span></input>
+
+<input class="userIcon" id="un" type="text" required=required placeholder="Username">
 
 </div>
-<input class="passIcon" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters" required <span id="indent" placeholder="Password"></span></input>
+<input class="passIcon" id="pass" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters" required=required placeholder="Password">
 
-<label><button type="submit" class="login">LOGIN</button></label>
+<label><button type="button" class="login" onclick="return redirectToMapPage()" >LOGIN</button></label>
 <br>
 <label><input type="checkbox" checked>Stay signed in</input></label>
-</div>
 </form>
+</div>
+
 
 <form>
 <div class="column-right">
 <div class="heading2">SIGN UP</div>
-<input type="text" 
-    pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" 
-    required <span id="indent" class="emailIcon" title="A valid email address" placeholder="Enter your email"></span>
-    </input>
+<input type="text" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required class="emailIcon" title="A valid email address" placeholder="Enter your email" ></input>
     
     <div>
-<input type="text" <span id="indent" class="userIcon" placeholder="Username" required>
-<input class="passIcon" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters"required <span id="indent" placeholder="Password"></span></input>
+<input type="text" class="userIcon" placeholder="Username" required>
+<input class="passIcon" type="password" pattern=".{6,}" title="A password consisting of at least 6 characters"required placeholder="Password"></input>
 
 </div>
 <label><button type="submit" class="register" >REGISTER</button></label>
@@ -379,6 +383,21 @@ window.onclick = function(event) {
     }
 }
 
-</script>
 
+function redirectToMapPage() {
+var usernamevalue = document.getElementById("un").value;
+var passvalue = document.getElementById("pass").value;
+	if (usernamevalue == 'username' && passvalue == 'password') {
+	alert("Login succesful. Welcome!");
+	window.location.href = "mappage.html";
+	return false;
+	 } 
+	 else {
+	 alert("Incorrect login. Please try again.");
+	 return false;
+	 }
+  } 
+ 
+
+</script>
 </body>
