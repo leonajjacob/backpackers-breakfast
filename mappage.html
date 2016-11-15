@@ -38,7 +38,7 @@
 			float: left;
 			}
 			
-			#account {
+			#navigation {
 			float: right;
 			}
 			
@@ -52,12 +52,15 @@
 				width: 250px;
 				height: 25px;
 				overflow: hidden; /* Clear floats */
-				float: right;
-			}
+				float: left;
+				padding-left: 250px;
+				padding-top: -80px;
+			} 
 			
 			#search, 
 			#submit {
 				float: left;
+				padding-left: 50px;
 			}
 
 			#search {
@@ -69,7 +72,7 @@
 				letter-spacing: 1px;
 				font-size: 12px;
 				background: #f1f1f1;
-				border-radius: 50px 3px 3px 50px;           
+				border-radius: 50px 3px 3px 50px; 			
 			}
 
 			/* ----------------------- */
@@ -102,7 +105,7 @@
 				border-radius: 3.6rem;
 				cursor: pointer;
 				display: inline-block;
-				font-size: 2.0rem;
+				font-size: 1.5rem;
 				height: 3.6rem;
 				line-height: 3.6rem;
 				margin: 0 5px;
@@ -113,6 +116,9 @@
 					-ms-user-select: none;
 						user-select: none;
 				width: 3.6rem;
+				float: right;
+				margin-right: 10px;
+				margin-top: -50px;
 			}
 
 			/* Circle */
@@ -131,9 +137,9 @@
 				width: 0;
 			}
 			.icon-button:hover span {
-				width: 3.6rem;
-				height: 3.6rem;
-				border-radius: 3.6rem;
+				width: 3rem;
+				height: 3rem;
+				border-radius: 3rem;
 				margin: -1.8rem;
 			}
 			.twitter span {
@@ -161,9 +167,11 @@
 			}
 			.icon-button .icon-twitter {
 				color: #4099ff;
+				float: right;
 			}
 			.icon-button .icon-facebook {
 				color: #3B5998;
+				float: right;
 			}
 
 			.icon-button:hover .icon-twitter,
@@ -180,6 +188,15 @@
         
             function init() {
 
+				var locations = [
+				['<b> Pan con Chirraron </b> <br> <small> Lima, Peru </small> <br> <br> <img src= "http://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/full/public/recipe_image_pan_con_chicharron.jpg?itok=8aJgGnZp&mtime=1416875361" height="100" width="150">',-12.046374, -77.042793,0],
+				['<b> Huevos Rancheros </b> <br> <small> Mexico City, Mexico </small> <br> <br> <img src= "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2014/7/22/2/FNM_090114-Huevos-Rancheros-Recipe_s4x3.jpg.rend.sni12col.landscape.jpeg" height="100" width"150">',19.432608, -99.133209,0],
+				['<b> Pau Bhaji </b> <br> <small> Goa, India </small> <br> <br> <img src= "http://img3.hungertv.com/wp-content/uploads/2015/03/Dishoom-pau-bhaji.jpg" height="100" width="150">',15.496777, 73.827827,0],
+				['<b> Blueberry Pancakes </b> <br> <small> New York City, NY, USA </small> <br> <br> <img src= "http://honestcooking.com/wp-content/uploads/2014/04/Dark-Chocolate-Blueberry-Pancakes-1-960x727.jpg" height="100" width="150">',40.730610, -73.935242,0],
+				['<b> Akara </b> <br> <small> Lagos, Nigeria </small> <br> <br> <img src= "http://celestreet.com/media/k2/items/cache/2889112b7ee1be3fece0f2b74fb9a783_S.jpg" height="100" width="150">',6.465422, 3.406448,0],
+				['<b> Fried Mantou with Condensed Milk </b> <br> <small> Sichuan, China </small> <br> <br> <img src= "http://www.chinasichuanfood.com/wp-content/uploads/2014/12/fried-mantou-with-condensed-milk-6-copy.jpg" height="100" width="150">',31.456781, 102.843018,0]
+				];
+				
                 var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 3,
 					center: new google.maps.LatLng(0,0),
@@ -191,12 +208,40 @@
 				google.maps.event.addDomListener(window, 'resize', function() {
 				map.setCenter(center);
 				});
+				
+				var icon = {
+				url: "https://freeiconshop.com/files/edd/eat-flat-1.png", // url
+				scaledSize: new google.maps.Size(50, 50), // scaled size
+				origin: new google.maps.Point(0,0), // origin
+				anchor: new google.maps.Point(0, 0) // anchor
+};
+				
+				var infowindow = new google.maps.InfoWindow();
+                
+				var marker, i;
 
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(-12.046374, -77.042793),
-                    map: map,
-                    title: 'Pan con Chirraron!'
-                });
+				for (i = 0; i < locations.length; i++) {  
+				  marker = new google.maps.Marker({
+					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+					map: map,
+					icon: icon,
+					animation: google.maps.Animation.DROP
+				  });
+
+				  google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+					return function() {
+					  infowindow.setContent(locations[i][0]);
+					  infowindow.open(map, marker);
+					}
+				  })(marker, i));
+				  
+				  google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+					return function() {
+					  infowindow.setContent(locations[i][0]);
+					  infowindow.close(map, marker);
+					}
+				  })(marker, i));
+				}
             }
         </script>
     </head>
@@ -205,14 +250,14 @@
         <h1>BACKPACKER'S BREAKFAST</h1>
 		</div>
 		
-		<div id="account">
-		<h2>SIGN IN | SIGN UP</h2>
+		<div id="navigation">
+		<h2>ABOUT | RECIPES | CONTACT</h2>
 		</div>
 		
         <div id="map"></div>
 		
-		<div id="navigation">
-		<h3>ABOUT | RECIPES | CONTACT</h3>
+		<div id="account">
+		<h3>SIGN IN | SIGN UP</h3>
 		</div>
 		
 		<form id="searchbox" action="">
@@ -220,8 +265,8 @@
 			<input id="submit" type="submit" value="GO">
 		</form>
 		
-		<a href="http://twitter.com" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
-		<a href="http://facebook.com" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
+		<a href="https://twitter.com/bckpckerbrekkie" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
+		<a href="https://www.facebook.com/backpackersbreakfast" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
 		
     </body>
 </html>
