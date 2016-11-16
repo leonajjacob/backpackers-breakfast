@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Backpacker's Breakfast</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Assistant|Muli" rel="stylesheet">
 		<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css'>
 		
@@ -24,9 +25,10 @@
 			font-size: 15px;
 			padding-top: 35px;
 			padding-right: 20px;
+			float: right;
 			}
 			
-			h3 {
+			#signin {
 			font-family: 'Muli', sans-serif;
 			letter-spacing: 4px;
 			font-size: 15px;
@@ -38,11 +40,107 @@
 			float: left;
 			}
 			
-			#navigation {
-			float: right;
+			.modal {
+			  display: none;
+			  z-index: 1;
+			  width: 60%;
+			  height: 45%;
+			  overflow: auto;
+			  /* Enable scroll if needed */
+			  background-color: #e8e6de;
+			  position: absolute;
+			  margin-left: 200px;
+			  position: center;
 			}
 			
-			#searchbox {
+			.modal-content {
+			  text-align: left;
+			  margin: 5% auto;
+			  padding: 20px;
+			  font-size: 12px;
+			  font-family: 'Assistant', sans-serif;
+			}
+			
+			.close {
+			  color: grey;
+			  float: right;
+			  font-size: 15px;
+			  margin: 0px 9px 0 0;
+			}
+			
+			.close:hover {
+			  color: black;
+			  cursor: pointer;
+			  font-weight: bold;
+			}
+			
+			.bold {
+			  font-weight: bold;
+			  font-size: 20px;
+			}
+			
+			label {
+			  font-size: 10px;
+			  float: center;
+			}
+			
+			input {
+			  margin: 20px;
+			}
+			
+			label textarea {
+			  vertical-align: middle;
+			}
+			
+			#submitButton {
+			  float: right;
+			  background: #62bf50;
+			  padding: 10px;
+			  margin: 20px;
+			  letter-spacing: 8px;
+			  padding: 10px;
+			  margin: 20px;
+			}
+			
+			#submitButton:hover {
+			  cursor: pointer;
+			}
+			
+			#aboutButton {
+			  letter-spacing: 4px;
+			}
+			
+			#aboutButton:hover {
+			  cursor: pointer;
+			  background-color: #e5c63b;
+			  font-size: 17px;
+			}
+			
+			#contactButton:hover {
+			  cursor: pointer;
+			  background-color: #62bf50;
+			  font-size: 17px;
+			}
+			
+			#contactButton {
+			  letter-spacing: 4px;
+			}
+			
+			#recepieButton:hover {
+			  cursor: pointer;
+			  background-color: #69b7db;
+			  font-size: 17px;
+			}
+			
+			#recepieButton {
+			  letter-spacing: 4px;
+			}
+			
+			#feedback {
+			  text-align: center;
+			  vertical-align: middle;
+			}
+			<!--#searchbox {
 				background-color: #eaf8fc;
 				background-image: linear-gradient(#fff, #d4e8ec);
 				border-radius: 35px;    
@@ -97,7 +195,7 @@
 
 			#submit::-moz-focus-inner {
 				   border: 0;  /* Small centering fix for Firefox */
-			}
+			}-->
 			
 			/* Wrapper */
 			.icon-button {
@@ -108,7 +206,6 @@
 				font-size: 1.5rem;
 				height: 3.6rem;
 				line-height: 3.6rem;
-				margin: 0 5px;
 				position: relative;
 				text-align: center;
 				-webkit-user-select: none;
@@ -117,8 +214,6 @@
 						user-select: none;
 				width: 3.6rem;
 				float: right;
-				margin-right: 10px;
-				margin-top: -50px;
 			}
 
 			/* Circle */
@@ -173,10 +268,10 @@
 				color: #3B5998;
 				float: right;
 			}
-
-			.icon-button:hover .icon-twitter,
-			.icon-button:hover .icon-facebook,
-				color: white;
+			
+			.icon-button .icon-twitter:hover,
+			.icon-button .icon-facebook:hover{
+				color: #fff;
 			}
 			
         </style>
@@ -189,7 +284,7 @@
             function init() {
 
 				var locations = [
-				['<b> Pan con Chirraron </b> <br> <small> Lima, Peru </small> <br> <br> <img src= "http://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/full/public/recipe_image_pan_con_chicharron.jpg?itok=8aJgGnZp&mtime=1416875361" height="100" width="150">',-12.046374, -77.042793,0],
+				['<b> Pan con Chirraron </b> <br> <small> Lima, Peru </small> <br> <br>  <img src= "http://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/full/public/recipe_image_pan_con_chicharron.jpg?itok=8aJgGnZp&mtime=1416875361" height="100" width="150">',-12.046374, -77.042793,0],
 				['<b> Huevos Rancheros </b> <br> <small> Mexico City, Mexico </small> <br> <br> <img src= "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2014/7/22/2/FNM_090114-Huevos-Rancheros-Recipe_s4x3.jpg.rend.sni12col.landscape.jpeg" height="100" width"150">',19.432608, -99.133209,0],
 				['<b> Pau Bhaji </b> <br> <small> Goa, India </small> <br> <br> <img src= "http://img3.hungertv.com/wp-content/uploads/2015/03/Dishoom-pau-bhaji.jpg" height="100" width="150">',15.496777, 73.827827,0],
 				['<b> Blueberry Pancakes </b> <br> <small> New York City, NY, USA </small> <br> <br> <img src= "http://honestcooking.com/wp-content/uploads/2014/04/Dark-Chocolate-Blueberry-Pancakes-1-960x727.jpg" height="100" width="150">',40.730610, -73.935242,0],
@@ -213,7 +308,7 @@
 				url: "https://freeiconshop.com/files/edd/eat-flat-1.png", // url
 				scaledSize: new google.maps.Size(50, 50), // scaled size
 				origin: new google.maps.Point(0,0), // origin
-				anchor: new google.maps.Point(0, 0) // anchor
+				anchor: new google.maps.Point(0,0) // anchor
 };
 				
 				var infowindow = new google.maps.InfoWindow();
@@ -241,32 +336,172 @@
 					  infowindow.close(map, marker);
 					}
 				  })(marker, i));
+
 				}
             }
         </script>
+		
     </head>
     <body>
 		<div id="main">
         <h1>BACKPACKER'S BREAKFAST</h1>
 		</div>
 		
-		<div id="navigation">
-		<h2>ABOUT | RECIPES | CONTACT</h2>
 		</div>
+		<h2> 
+			<span id="aboutButton">ABOUT</span>
+			<span class="bold">|</span>
+			<span id="recepieButton" onclick="window.location='recpage.html';">RECIPES</span>
+			<span class="bold">|</span>
+			<span id="contactButton"> CONTACT</span>
+		</h2>
 		
+		<div id="contactModal" class="modal">
+			
+			<div class="modal-content">
+				<span class="close">x</span>
+				<div id="contact">
+					<h4>Contact</h4>
+					<label>Email
+						<input type="text" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required title="A valid email address"></input>
+					</label>
+					<br>
+					<label>Feedback
+						<textarea cols="40" rows="10"></textarea>
+					</label>
+					<br>
+					<br>
+					<p>Alternatively, please feel free to email us at backpackersbreakfast@gmail.com.</p>
+					<label>
+						<button id="submitButton" type="submit"><span class="close">SUBMIT</span></button>
+					</label>
+				</div>
+
+				<div id="feedback">
+					<p>Thank you for your feedback!</p>
+					<p>BB team</p>
+				</div>
+
+				<div id="about">
+					<h4>About Us</h4>
+					<p>We started off as a group project between a few friends and thanks to your support, have grown into a huge foodie community. Happy reading.</p>
+					<p>Thank you!</p>
+					<p>The BB Team</p>
+				</div>
+
+			</div>
+		</div>
+	
         <div id="map"></div>
 		
-		<div id="account">
-		<h3>SIGN IN | SIGN UP</h3>
-		</div>
+		<span id="signin" onclick="window.location='signinpage.html';">SIGN IN | SIGN UP</span>  
 		
-		<form id="searchbox" action="">
+		<!-- <form id="searchbox" action="">
 			<input id="search" type="text" placeholder="Search for a city">
 			<input id="submit" type="submit" value="GO">
-		</form>
+		</form> -->
 		
 		<a href="https://twitter.com/bckpckerbrekkie" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
 		<a href="https://www.facebook.com/backpackersbreakfast" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
 		
+		<script>
+			// When about button is clicked, toggle modal class
+			$("#aboutButton").click(function() {
+			  $("#contact").addClass('modal'); //remove modal class
+			  $("#about").removeClass('modal'); //add modal class
+			  $("#feedback").addClass('modal'); //remove modal class
+			});
+
+			$("#contactButton").click(function() {
+			  $("#contact").removeClass('modal'); //add modal class
+			  $("#about").addClass('modal'); //remove modal class
+			  $("#feedback").addClass('modal'); //remove modal class
+			});
+
+			$("#submitButton").click(function() {
+			  $("#contact").addClass('modal'); //remove modal class
+			  $("#about").addClass('modal'); //remove modal class
+			  $("#feedback").removeClass('modal'); //add modal class
+			});
+
+			// Get the modal
+			var modal = document.getElementById('contactModal');
+
+
+			// Get the button that opens the modal
+			var btn = document.getElementById("contactButton");
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+			
+			// When the user clicks on the button, open the modal 
+			btn.onclick = function() {
+			  modal.style.display = "block";
+			}
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+			  modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+				modal.style.display = "none";
+			  }
+			}
+
+			// Get the modal
+			var modal = document.getElementById('contactModal');
+
+			// Get the button that opens the modal
+			var btn = document.getElementById("aboutButton");
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks on the button, open the modal 
+			btn.onclick = function() {
+			  modal.style.display = "block";
+			}
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+			  modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+				modal.style.display = "none";
+			  }
+			}
+
+			// Get the modal
+			var modal = document.getElementById('contactModal');
+
+			// Get the button that opens the modal
+			var btn = document.getElementById("submitButton");
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks on the button, open the modal 
+			btn.onclick = function() {
+			  modal.style.display = "block";
+			}
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+			  modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+				modal.style.display = "none";
+			  }
+			}
+		</script>
     </body>
 </html>
