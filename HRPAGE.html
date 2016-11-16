@@ -11,14 +11,6 @@
 <title>Backpacker's Breakfast</title>
 <h1> Backpacker's Breakfast</h1>
 
-<h5> 
-<span id="aboutButton">ABOUT</span>
-<span class="bold">|</span>
-<span id="recepieButton"> RECEPIES </span>
-<span class="bold">|</span>
-<span id="contactButton"> CONTACT</span>
-</h5>
-
 		<link href="https://fonts.googleapis.com/css?family=Assistant|Muli" rel="stylesheet">
 		<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css'>
 		
@@ -68,7 +60,6 @@
 			padding-top: 10px;
 			padding-left: 20px;
 			}
-
 			h4 {
 			font-family: 'Muli', sans-serif;
 			letter-spacing: 4px;
@@ -286,7 +277,6 @@
       text-align: center;
       vertical-align: middle;
     }
-
 </style>
 
 </head>
@@ -382,7 +372,7 @@
                             <div class="media-body">
                                 
                               <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Wow! this is really great.
+                              This is making me hungry!
                               
                               <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
                             </div>
@@ -394,8 +384,8 @@
                             </a>
                             <div class="media-body">
                                 
-                              <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Wow! this is really great.
+                              <h4 class="media-heading user_name">Ben and Jerry</h4>
+                              DAMN
                               
                               <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
                             </div>
@@ -407,8 +397,8 @@
                             </a>
                             <div class="media-body">
                                 
-                              <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Wow! this is really great.
+                              <h4 class="media-heading user_name">Cheese Hat</h4>
+                              Dribbling at my screen yo!
                               
                               <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
                             </div>
@@ -420,8 +410,8 @@
                             </a>
                             <div class="media-body">
                                 
-                              <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Wow! this is really great.
+                              <h4 class="media-heading user_name">Tom Seeker</h4>
+                              I NEED TO MAKE THIS NOWWW!!!!! 
                               
                               <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
                             </div>
@@ -485,98 +475,76 @@
       $("#about").removeClass('modal'); //add modal class
       $("#feedback").addClass('modal'); //remove modal class
     });
-
     $("#contactButton").click(function() {
       $("#contact").removeClass('modal'); //add modal class
       $("#about").addClass('modal'); //remove modal class
       $("#feedback").addClass('modal'); //remove modal class
     });
-
     $("#submitButton").click(function() {
       $("#contact").addClass('modal'); //remove modal class
       $("#about").addClass('modal'); //remove modal class
       $("#feedback").removeClass('modal'); //add modal class
     });
-
     // Get the modal
     var modal = document.getElementById('contactModal');
-
-
     // Get the button that opens the modal
     var btn = document.getElementById("contactButton");
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
-
     // When the user clicks on the button, open the modal 
     btn.onclick = function() {
       modal.style.display = "block";
     }
-
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
     }
-
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
       }
     }
-
     // Get the modal
     var modal = document.getElementById('contactModal');
-
     // Get the button that opens the modal
     var btn = document.getElementById("aboutButton");
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
-
     // When the user clicks on the button, open the modal 
     btn.onclick = function() {
       modal.style.display = "block";
     }
-
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
     }
-
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
       }
     }
-
     // Get the modal
     var modal = document.getElementById('contactModal');
-
     // Get the button that opens the modal
     var btn = document.getElementById("submitButton");
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
-
     // When the user clicks on the button, open the modal 
     btn.onclick = function() {
       modal.style.display = "block";
     }
-
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
     }
-
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
       }
     }
-
   </script>
 
 </body>
