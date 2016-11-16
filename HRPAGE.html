@@ -179,6 +179,112 @@
 			.icon-button:hover .icon-facebook,
 				color: white;
 			}
+   
+     
+   			 .modal {
+  		    display: none;
+  			    z-index: 1;
+     			 width: 60%;
+    			  height: 45%;
+     				 overflow: auto;
+    				  /* Enable scroll if needed */
+   			   background-color: #e8e6de;
+   			   position: absolute;
+      		margin-left: 200px;
+   		 }
+    
+    .modal-content {
+      text-align: left;
+      margin: 5% auto;
+      padding: 20px;
+      font-size: 12px;
+    }
+    
+    .close {
+      color: grey;
+      float: right;
+      font-size: 15px;
+      margin: 0px 9px 0 0;
+    }
+    
+    .close:hover {
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+ 
+    
+    .bold {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    
+    
+    label {
+      font-size: 10px;
+      float: center;
+    }
+    
+    
+    input {
+      margin: 20px;
+    }
+    
+    
+    label textarea {
+      vertical-align: middle;
+    }
+    
+    #submitButton {
+      float: right;
+      background: #62bf50;
+      padding: 10px;
+      margin: 20px;
+	  letter-spacing: 8px;
+      padding: 10px;
+      margin: 20px;
+    }
+    
+    #submitButton:hover {
+      cursor: pointer;
+    }
+    
+    #aboutButton {
+      letter-spacing: 4px;
+    }
+    
+    #aboutButton:hover {
+      cursor: pointer;
+      background-color: #e5c63b;
+      font-size: 17px;
+    }
+    
+    #contactButton:hover {
+      cursor: pointer;
+      background-color: #62bf50;
+      font-size: 17px;
+    }
+    
+    #contactButton {
+      letter-spacing: 4px;
+    }
+    
+    #recepieButton:hover {
+      cursor: pointer;
+      background-color: #69b7db;
+      font-size: 17px;
+    }
+    
+    #recepieButton {
+      letter-spacing: 4px;
+    }
+    
+    
+    #feedback {
+      text-align: center;
+      vertical-align: middle;
+    }
 
 </style>
 
@@ -321,11 +427,112 @@
                           </div>
                    </div>
                     
-                    
+             
                     
                 </div>
             </div>
         </div>
+
+<script>
+    // When about button is clicked, toggle modal class
+    $("#aboutButton").click(function() {
+      $("#contact").addClass('modal'); //remove modal class
+      $("#about").removeClass('modal'); //add modal class
+      $("#feedback").addClass('modal'); //remove modal class
+    });
+
+    $("#contactButton").click(function() {
+      $("#contact").removeClass('modal'); //add modal class
+      $("#about").addClass('modal'); //remove modal class
+      $("#feedback").addClass('modal'); //remove modal class
+    });
+
+    $("#submitButton").click(function() {
+      $("#contact").addClass('modal'); //remove modal class
+      $("#about").addClass('modal'); //remove modal class
+      $("#feedback").removeClass('modal'); //add modal class
+    });
+
+    // Get the modal
+    var modal = document.getElementById('contactModal');
+
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("contactButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Get the modal
+    var modal = document.getElementById('contactModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("aboutButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Get the modal
+    var modal = document.getElementById('contactModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("submitButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+  </script>
 
 </body>
 
