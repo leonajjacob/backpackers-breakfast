@@ -2,6 +2,7 @@
 
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link href='BOOTIES/css/bootstrap.css' rel='stylesheet'>
 <link href='main.css' rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -432,6 +433,50 @@
                 </div>
             </div>
         </div>
+
+<h5> 
+<span id="aboutButton">ABOUT</span>
+<span class="bold">|</span>
+<span id="recepieButton" onclick="window.location='recpage.html';">RECIPES</span>
+<span class="bold">|</span>
+<span id="contactButton"> CONTACT</span>
+</h5>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+
+      <span class="close">x</span>
+      <div id="contact">
+        <h3>Contact</h3>
+        <label>Email
+          <input type="text" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required title="A valid email address"></input>
+        </label>
+        <br>
+        <label>Feedback
+          <textarea cols="40" rows="10"></textarea>
+        </label>
+        <br>
+        <br>
+        <p>Alternatively, please feel free to email us at backpackersbreakfast@gmail.com.</p>
+        <label>
+          <button id="submitButton" type="submit"><span class="close">SUBMIT</span></button>
+        </label>
+      </div>
+
+      <div id="feedback">
+        <p>Thank you for your feedback!</p>
+        <p>BB team</p>
+      </div>
+
+      <div id="about">
+        <h3>About Us</h3>
+        <p>We started off as a group project between a few friends and thanks to your support, have grown into a huge foodie community. Happy reading.</p>
+        <p>Thank you!</p>
+        <p>The BB Team</p>
+      </div>
+
+    </div>
+  </div>
 
 <script>
     // When about button is clicked, toggle modal class
