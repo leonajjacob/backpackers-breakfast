@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+                                                                  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> 
+
+</script> 
+
+
+<link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<style>
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 0 auto;
+  max-width: 90%;
+  background: rgba(0,0,0,0);
+  padding: 0;
+  text-align: center;
+}
+h1 {
+  font-family: 'Assistant', sans-serif;
+  text-align: left;
+  letter-spacing: 10px;
+  font-size: 40px;
+  color: black;
+  margin: 60px 0 20px 0;
+}
+h5 {
+  text-align: right;
+  color: black;
+  margin: 0px 0px 70px 0px;
+  margin-top: -60px;
+}
+.modal {
+display: none;
+z-index: 1;
+width: 60%;
+height: 45%; 
+overflow: auto; /* Enable scroll if needed */
+background-color: #e8e6de;
+position: absolute;
+margin-left: 200px;
+}
+.modal-content {
+text-align: left;
+margin: 5% auto;
+padding: 20px;
+font-size: 12px;
+}
+.close {
+    color: grey;
+    float: right;
+    font-size: 15px;
+    margin: 0px 9px 0 0;
+}
+.close:hover {
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+button {
+  letter-spacing: 8px;
+  padding: 10px;
+  margin: 20px;  
+}
+.login {
+background: #fcde5a;
+margin: 40px 0px 50px px;
+}
+.register {
+background: #69b7db;
+}
+.bold {
+  font-weight: bold;
+  font-size: 20px;
+}
+.column-right {
+float: right;
+max-width: 300px;
+margin-right: 250px;
+}
+.column-left {
+float: left;
+max-width: 300px;
+border-right: solid;
+margin-left: 300px; 
+}
+.heading1 {
+letter-spacing: 7px;
+margin: 50px 10px 80px 0px;
+}
+.heading2 {
+letter-spacing: 7px;
+padding: 47px 0px;
+}
+label {
+font-size: 10px;
+float: center;
+}
+  input:required:valid {
+   background-image: url(http://www.the-art-of-web.com/images/valid.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+input {
+margin: 20px;
+}
+.passIcon{
+background-image: url("http://www.freeiconspng.com/uploads/black-lock-icon-14.png");
+background-repeat: no-repeat;
+background-position: left;
+background-size: 15px 15px;
+text-indent: 20px;
+font-family: 'Muli', sans-serif;
+letter-spacing: 0.5px;
+}
+.userIcon{
+background-image: url("http://www.fancyicons.com/free-icons/103/mimi-deep-colour/png/48/user_48.png");
+background-repeat: no-repeat;
+background-position: left;
+background-size: 15px 15px;
+text-indent: 20px;
+font-family: 'Muli', sans-serif;
+letter-spacing: 0.5px;
+}
+.emailIcon{
+background-image: url("http://www.free-icons-download.net/images/small-email-icon-59492.png");
+background-repeat: no-repeat;
+background-position: left;
+background-size: 18px 20px;
+text-indent: 20px;
+font-family: 'Muli', sans-serif;
+letter-spacing: 0.5px;
+}
+label textarea{
+ vertical-align: middle;
+}
+#submitButton {
+  float: right;
+  background: #62bf50;
+  padding: 10px;
+  margin: 20px;
+  
+}
+#submitButton:hover {
+    cursor: pointer;
+}
+#aboutButton {
+letter-spacing: 4px;
+}
+#aboutButton:hover {
+    cursor: pointer;
+    background-color: #e5c63b;
+     font-size: 17px;
+}
+#contactButton:hover {
+    cursor: pointer;
+    background-color: #62bf50;
+    font-size: 17px;
+}
+#contactButton {
+letter-spacing: 4px;
+}
+#recepieButton:hover {
+    cursor: pointer;
+    background-color: #69b7db;
+    font-size: 17px;
+}
+#recepieButton {
+letter-spacing: 4px;
+}
+#termsConditions:hover {
+cursor: pointer;
+}
+#feedback {
+text-align: center;
+vertical-align: middle;
+}
+
+</style>
+</head>
+
+
+<Body>
+
+<div class="container">
+    <!--Row with two equal columns-->
+    <div class="row">
+        
+        <div class="col-sm-5"><!--Column left-->
+
+          <h1> HUEVOS RANCHEROS </h1>
+          <img src="https://s-media-cache-ak0.pinimg.com/736x/b6/f8/75/b6f875275c5563a37196eabb9183eba4.jpg" alt="jpg" style="width: 100%"">
+
+        </div>
+
+
+        <div class="col-sm-7"><!--Column right-->
+    
+
+        <h2> "BREAKFAST OF CHAMPIONS" </h2>
+
+        <p>Suitable for: Vegetarian, Gluten-free, Hangovers. </p>
+
+          <p>
+
+          <h3> Ingredients </h3>
+
+          <ul>
+          <li>1 onion , peeled and finely sliced </li>
+          <li>2 cloves of garlic , peeled and finely sliced </li>
+          <li>2 red peppers , deseeded and finely sliced </li>
+          <li>2 fresh red or orange chillies , deseeded and finely sliced </li>
+          <li>1 large dried chilli </li>
+          <li>ground black pepper </li>
+          <li>2 x 400 g tins of chopped tomatoes </li>
+          <li>6 large eggs , preferably free-range or organic </li>
+          <li>200g of grated cheese
+          <li>6 tortillas (for serving) </li>
+          <li>2 mashed avocados (for serving) </li>
+          </ul>
+
+          <h3> Method </h3>
+
+          <ol type="1">
+
+          <li>Take a large frying pan, put it on a high heat and add the onion, garlic, peppers, fresh and dried chillies. Stir and cook for 15 minutes to soften and caramelize the veg. </li>
+          <li>Pour in the two tins of tomatoes and bring to the boil. When the water has boiled off, turn down to a medium heat and cook for a further 5 minutes so the sauce starts to reduce down into a thick sauce. </li>
+          <li>When the sauce is a nice thick consistency use a spoon to make wells in the sauce and crack in your eggs so they poach in the delicious juices. Try to crack them in as quickly as you can so they all get to cook for roughly the same amount of time. </li>
+          <li>Put the lid on and let the eggs cook for around 3 to 4 minutes. Warm your tortillas while this is happening either in the microwave or in the oven. </li>
+          <li> Check your eggs by giving them a poke with your finger. If they feel firm to the touch turn the heat off. Sprinkle over the cheese. Serve with your warmed tortillas and mashed avocado. </li>
+
+          </ol>
+
+          </p>
+
+
+<footer class="container-fluid">
+
+<h5> 
+<span id="aboutButton">ABOUT</span>
+<span class="bold">|</span>
+<span id="recepieButton" onclick="window.location='recpage.html';">RECIPES</span>
+<span class="bold">|</span>
+<span id="contactButton"> CONTACT</span>
+
+</h5>
+
+</footer>
+        </div>
+    
+    </div>
+</div>
+
+
+</body>
+
+</html>
